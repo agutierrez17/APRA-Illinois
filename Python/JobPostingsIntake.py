@@ -26,7 +26,7 @@ data = data.fillna("")
 print('Checking job URLs...')
 print('')
 for job in data.values.tolist():
-    url = job[5]
+    url = job[6]
     jobtitle = job[1]
     active = ''
     
@@ -45,7 +45,7 @@ for job in data.values.tolist():
     data.loc[data['Link'] == url, 'Active'] = active
 
 # Insert data into JobPostings table
-cursor.executemany("""INSERT INTO [dbo].[JobPostings] ([Organization],[Job Title],[Location],[Salary Range],[Date Posted],[Link],[Active]) VALUES (?,?,?,?,?,?,?)""", data.values.tolist())
+cursor.executemany("""INSERT INTO [dbo].[JobPostings] ([Organization],[Job Title],[Location],[Salary Range],[Category],[Date Posted],[Link],[Active]) VALUES (?,?,?,?,?,?,?,?)""", data.values.tolist())
 cursor.commit()
 
 print('All jobs inserted.')
