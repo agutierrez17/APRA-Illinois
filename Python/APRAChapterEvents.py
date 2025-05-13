@@ -31,8 +31,11 @@ for index, row in data.iterrows():
         soup = upcoming
 
         # get all href links
-        #for a in soup.find_all('a', href=True):
-
+        for a in soup.find_all('a', href=True):
+            line_no = a.sourceline
+            linktext = a.get('href')
+            a.insert(line_no, ' ' + linktext)
+                  
         # get text from events section
         text = soup.get_text()
 
@@ -66,4 +69,5 @@ for index, row in data.iterrows():
 
 # Print final text
 print(blob)
-
+print('')
+print('Can you please try and parse out information on upcoming events from the text blob that will follow this prompt, so that I can insert the data into a SQL table? The columns I need will be "APRA Chapter", "Event Name", "Date", "Time", "Location", "Description" (if present), and "Link".')

@@ -1,3 +1,5 @@
+CREATE VIEW [dbo].[JobPostingsEmailHTML] AS
+
 SELECT
 '<tr><td align="left" style="background:transparent;font-size:0px;padding:0px;word-break:break-word;">' +
 '<div style="font-family:Arial, Helvetica, sans-serif;font-size:16px;line-height:1;text-align:left;color:#000000;"><ul style="line-height: 21px;">' +
@@ -13,3 +15,5 @@ WHERE [Active] = 'Y'
 ORDER BY [Date Posted] DESC
 FOR XML PATH('')), 1, 1, ''),'&lt;','<'),'&gt;','>'),'&nbsp;',' '),'&amp;','&') + '</ul></div></td></tr>'
 AS HTML
+
+GO

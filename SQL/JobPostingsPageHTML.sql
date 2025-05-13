@@ -1,3 +1,5 @@
+CREATE VIEW [dbo].[JobPostingsPageHTML] AS
+
 SELECT
 '<div id="id_swRQGSR" class="WaGadget WaGadgetContent  gadgetStyleNone" style="background-color:transparent;" data-componentid="swRQGSR"><div class="gadgetStyleBody gadgetContentEditableArea" style="padding-top:5px;" data-editablearea="0" data-areaheight="auto">' +
 ------ Prospect Research, Development, and Management ------
@@ -88,3 +90,5 @@ WHERE [Active] = 'Y' AND Category = 'Other Fundraising Roles'
 ORDER BY [Date Posted] DESC
 FOR XML PATH('')), 1, 1, ''),'&lt;','<'),'&gt;','>'),'&nbsp;',' '),'&amp;','&') + '</blockquote></div></div>' 
 AS HTML
+
+GO
